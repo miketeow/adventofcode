@@ -1,0 +1,14 @@
+# Ignore C binaries
+*.o
+*.out
+/day*/c/main
+
+# Ignore Rust build artifacts
+target/
+**/*.rs.bk
+
+# Ignore Node modules (if you ever use npm packages)
+node_modules/
+
+# Ignore Inputs (Technically AoC asks you not to repo inputs, but up to you)
+input.txt
