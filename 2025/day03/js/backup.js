@@ -1,0 +1,11 @@
+import fs from "node:fs";
+import path from "node:path";
+const sampleInputPath = path.join(__dirname, "../sampleinput.txt");
+const sampleInput = fs.readFileSync(sampleInputPath, "utf-8").trim();
+const testInputPath = path.join(__dirname, "../testinput.txt");
+const testInput = fs.readFileSync(testInputPath, "utf-8").trim();
+const inputPath = path.join(__dirname, "../input.txt");
+const input = fs.readFileSync(inputPath, "utf-8").trim();
+const testArray = testInput.split("\n");
+const sampleArray = sampleInput.split("\n");
+const array = input.split(",");
