@@ -1,6 +1,6 @@
 fn main() {
   // let input = fs::read_to_string("../sampleinput.txt").expect("Error reading input.txt");
-  let input: &str = include_str!("../../input.txt");
+  let input: &str = include_str!("../../input/input.txt");
   let mut start: i32 = 50;
   let mut result: i32 = 0;
   for line in input.lines(){
@@ -52,11 +52,11 @@ fn pass_by(is_right: bool, current: i32, num: i32) -> i32{
 
   if is_right{
     if current + remainder > 99 {
-      counter += 1
+      counter += 1;
     }
   } else {
     if current - remainder <= 0 && current != 0 {
-      counter += 1
+      counter += 1;
     }
   }
   counter

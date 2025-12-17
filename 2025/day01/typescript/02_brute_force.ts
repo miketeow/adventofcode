@@ -1,12 +1,4 @@
-import fs from "node:fs";
-import path from "node:path";
-
-const inputPath = path.join(__dirname, "../input.txt");
-const input = fs.readFileSync(inputPath, "utf-8").trim();
-
-const array = input.split("\n");
-
-const solveBruteForce = (steps) => {
+export const solveBruteForce = (steps: string[]) => {
   let anchor = 50;
   let totalHits = 0;
 
@@ -30,8 +22,6 @@ const solveBruteForce = (steps) => {
       }
     }
   }
-  return totalHits;
-};
 
-const result = solveBruteForce(array);
-console.log("The result is: " + result);
+  console.log("The result is: " + totalHits);
+};

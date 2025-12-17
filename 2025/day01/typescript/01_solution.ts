@@ -1,16 +1,8 @@
-import fs from "node:fs";
-import path from "node:path";
-
-const inputPath = path.join(__dirname, "../input.txt");
-const input = fs.readFileSync(inputPath, "utf-8").trim();
-
-const array = input.split("\n");
-
-const mod = (n, m) => {
+const mod = (n: number, m: number) => {
   return ((n % m) + m) % m;
 };
 
-const passBy = (right, current, steps) => {
+const passBy = (right: boolean, current: number, steps: number) => {
   let counter = 0;
   let remainder = 0;
   if (steps >= 100) {
@@ -30,16 +22,20 @@ const passBy = (right, current, steps) => {
   }
   return counter;
 };
-const newSolution = (rotations) => {
+
+export const solve = (rotations: string[]) => {
   let dial = 50;
   let totalPassby = 0;
 
-  for (let i = 0; i < rotations.length; i++) {
+  for (const rotation of rotations) {
     let passByZeroDial = 0;
-    let steps = parseInt(rotations[i].slice(1));
-    if (rotations[i][0] === "R") {
-      passByZeroDial = passBy(true, dial, steps);
 
+    //safety check
+    if (!rotation) continue;
+    const steps = parseInt(rotation.slice(1));
+
+    if (rotation[0] === "R") {
+      passByZeroDial = passBy(true, dial, steps);
       dial = mod(dial + steps, 100);
     } else {
       passByZeroDial = passBy(false, dial, steps);
@@ -49,8 +45,5 @@ const newSolution = (rotations) => {
     totalPassby += passByZeroDial;
   }
 
-  return totalPassby;
+  console.log(`The result is: ${totalPassby}`);
 };
-
-const result = newSolution(array);
-console.log(`The result is ${result}`);
